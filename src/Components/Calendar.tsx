@@ -56,6 +56,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState>{
                                       currentDate: newDate,
                                       firstRender: false,
                                   });
+
                     return;
                 });
         }
@@ -199,6 +200,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState>{
         const { currentDate } = this.state;
         const currentMonth    = currentDate.toLocaleString('default', { month: 'long' });
         const currentYear     = currentDate.getFullYear();
+
         return (<div className="w-full relative z-10 backdrop-blur-3xl">
             <div className="w-full mx-auto">
                 <div className="grid grid-cols-12 gap-8 max-w-4xl mx-auto xl:max-w-full">

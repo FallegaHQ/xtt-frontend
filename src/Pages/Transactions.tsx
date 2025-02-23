@@ -21,7 +21,7 @@ interface ExpensesState extends PageState{
 }
 
 class Transactions extends Page<ExpensesProps, ExpensesState>{
-    static contextType = AuthContext;
+    static contextType                     = AuthContext;
     protected static requiresAuth: boolean = true;
     declare context: AuthContextType;
     private transactionsService: TransactionsService | null;

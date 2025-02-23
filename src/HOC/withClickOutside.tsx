@@ -19,6 +19,7 @@ const withClickOutside = <P extends object>(WrappedComponent: React.ComponentTyp
                 }
             };
             document.addEventListener('mousedown', handleClickOutside);
+
             return () => {
                 document.removeEventListener('mousedown', handleClickOutside);
             };

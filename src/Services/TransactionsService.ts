@@ -22,6 +22,7 @@ class TransactionsService{
         if(!TransactionsService.instance){
             TransactionsService.instance = new TransactionsService();
         }
+
         return TransactionsService.instance;
     }
 
@@ -29,6 +30,7 @@ class TransactionsService{
         try{
             const response = await this.axios.get<ApiResponse<TransactionsIndex>>('/transactions', { data: filters },  // Changed from params to data to send in body
             );
+
             return response.data.data.transactions;
         }
         catch(error){
@@ -40,12 +42,14 @@ class TransactionsService{
         const filters: TransactionsFilter = {
             date: range,
         };
+
         return this.getTransactions(filters);
     }
 
     public async getTransaction(id: number): Promise<Transaction>{
         try{
             const response = await this.axios.get<ApiResponse<Transaction>>(`/transactions/${id}`);
+
             return response.data.data;
         }
         catch(error){
@@ -56,6 +60,7 @@ class TransactionsService{
     public async createTransaction(transaction: CreateTransaction): Promise<Transaction>{
         try{
             const response = await this.axios.post<ApiResponse<Transaction>>('/transactions', transaction);
+
             return response.data.data;
         }
         catch(error){
@@ -66,6 +71,7 @@ class TransactionsService{
     public async updateTransaction(id: number, transaction: UpdateTransaction): Promise<Transaction>{
         try{
             const response = await this.axios.put<ApiResponse<Transaction>>(`/transactions/${id}`, transaction);
+
             return response.data.data;
         }
         catch(error){
@@ -86,6 +92,7 @@ class TransactionsService{
         if(error.response){
             return new Error(error.response.data.details?.message || 'An error occurred');
         }
+
         return new Error('Network error occurred');
     }
 }

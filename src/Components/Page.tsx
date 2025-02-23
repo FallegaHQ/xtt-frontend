@@ -93,6 +93,7 @@ abstract class Page<P extends PageProps = PageProps, S extends PageState = PageS
                 if(!auth?.isAuthenticated){
                     return <Navigate to="/login" replace/>;
                 }
+
                 return content(auth);
             }}
         </AuthContext.Consumer>);

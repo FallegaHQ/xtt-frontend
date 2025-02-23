@@ -13,6 +13,7 @@ const refreshToken = async() => {
         const response = await axiosInstance.post(`/auth/refresh`, null, { headers: { Authorization: 'Bearer ' + localStorage.getItem('token') } });
         const newToken = response.data.authorization.token;
         localStorage.setItem('token', newToken);
+
         return newToken;
     }
     catch(error){
@@ -27,6 +28,7 @@ axiosInstance.interceptors.request.use(async(config) => {
     if(token){
         config.headers['Authorization'] = `Bearer ${token}`;
     }
+
     return config;
 }, (error) => {
     throw error;
@@ -43,6 +45,7 @@ axiosInstance.interceptors.response.use((response) => response, async(error) => 
         try{
             const newToken                           = await refreshToken(); // Get a new token
             originalRequest.headers['Authorization'] = `Bearer ${newToken}`;
+
             return axiosInstance(originalRequest); // Retry the failed request
         }
         catch(refreshError){

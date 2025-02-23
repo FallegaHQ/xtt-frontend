@@ -3,7 +3,7 @@ import withNavigation from '../../HOC/withNavigation.tsx';
 import { NavigateFunction } from 'react-router-dom';
 
 interface NotFoundProps{
-    navigate:  NavigateFunction;
+    navigate: NavigateFunction;
 }
 
 class NotFound extends React.Component<NotFoundProps>{
@@ -11,9 +11,9 @@ class NotFound extends React.Component<NotFoundProps>{
         super(props);
     }
 
-
     render(){
         const { navigate } = this.props;
+
         return (<div className="flex flex-col items-center w-full h-screen">
             <h1 className="text-4xl font-bold mb-4">404</h1>
             <p className="text-lg text-gray-600 mb-6">

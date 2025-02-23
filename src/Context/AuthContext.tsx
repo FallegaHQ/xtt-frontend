@@ -67,13 +67,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     // Register function
-    const register  = async(email: string, password: string) => {
+    const register                   = async(email: string, password: string) => {
         await axiosInstance.post('/auth/register', {
             email,
             password,
         });
     };
-    const authValue:  AuthContextType = useMemo(() => ({
+    const authValue: AuthContextType = useMemo(() => ({
         isAuthenticated,
         user,
         login,
@@ -81,12 +81,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         logout,
         loading,
     }), [
-                                  isAuthenticated,
-                                  user,
-                                  login,
-                                  logout,
-                                  loading,
-                              ]);
+                                                   isAuthenticated,
+                                                   user,
+                                                   login,
+                                                   logout,
+                                                   loading,
+                                               ]);
 
     return <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>;
 };
@@ -96,5 +96,6 @@ export const useAuth = () => {
     if(!context){
         throw new Error('useAuth must be used within AuthProvider');
     }
+
     return context;
 };

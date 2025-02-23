@@ -32,6 +32,7 @@ const Login = () => {
             if(auth?.isAuthenticated){
                 return <Navigate to="/dashboard" replace/>;
             }
+
             return (<div className="flex justify-center items-center w-96">
                 <form onSubmit={handleLogin} className="bg-white w-full p-6 rounded shadow-md">
                     <h2 className="text-2xl font-bold mb-4">Login</h2>

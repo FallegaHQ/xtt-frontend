@@ -29,7 +29,7 @@ class TransactionCard extends React.Component<TransactionCardProps>{
                 <FontAwesomeIcon icon={faClock} className={'mr-2'}/> {time}
             </time>
             <p className="text-base font-normal text-gray-500 dark:text-gray-600 mt-2">{description}</p>
-            <p className="text-lg block text-right leading-8 font-semibold text-black my-3"><FontAwesomeIcon icon={faTags} /> {amount} TND</p>
+            <p className="text-lg block text-right leading-8 font-semibold text-black my-3"><FontAwesomeIcon icon={faTags}/> {amount} TND</p>
         </li>);
     }
 }

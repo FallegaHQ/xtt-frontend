@@ -77,9 +77,6 @@ export default [
             "camelcase": [
                 "error"
             ],
-            "capitalized-comments": [
-                "error"
-            ],
             "constructor-super": [
                 "error"
             ],
@@ -93,9 +90,6 @@ export default [
                 "error"
             ],
             "jsx-quotes": [
-                "error"
-            ],
-            "newline-before-return": [
                 "error"
             ],
             "newline-per-chained-call": [

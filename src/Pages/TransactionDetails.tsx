@@ -9,6 +9,7 @@ interface ExpenseDetailsProps{
 class TransactionDetails extends React.Component<ExpenseDetailsProps>{
     render(){
         const { params } = this.props;
+
         return (<h2>Viewing Expense ID: {params.reportId}</h2>);
     }
 }
