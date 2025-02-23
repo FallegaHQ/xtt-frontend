@@ -63,7 +63,7 @@ jobs:
 
             -   name: Release with Semantic Versioning
                 env :
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    GITHUB_TOKEN: ${{ secrets.PAT }}
                 run : npx semantic-release
 
     publish   :
@@ -85,4 +85,4 @@ jobs:
                 with:
                     files: frontend-build.zip
                 env :
-                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    GITHUB_TOKEN: ${{ secrets.PAT }}
