@@ -1,0 +1,48 @@
+info:
+    repository_url: "https://github.com/FallegaHQ/xtt-frontend"
+
+options:
+    commits:
+        filters:
+            Type:
+                - feat
+                - fix
+                - docs
+                - style
+                - refactor
+                - perf
+                - test
+                - chore
+    commit_groups:
+        title_maps:
+            feat: "✨ Features"
+            fix: "🐛 Bug Fixes"
+            docs: "📖 Documentation"
+            style: "🎨 Code Styling"
+            refactor: "🔨 Refactoring"
+            perf: "⚡ Performance Improvements"
+            test: "🧪 Tests"
+            chore: "🔧 Chores"
+    header:
+        pattern: "^([a-zA-Z]+)(?:\\((.+)\\))?!?: (.+)$"
+        pattern_maps:
+            - Type
+            - Scope
+            - Subject
+    note_groups:
+        title_maps:
+            BREAKING CHANGE: "🚨 Breaking Changes"
+    ref_links:
+        actions:
+            - prefix: "#"
+              url: "https://github.com/FallegaHQ/xtt-frontend/issues/{{ .ID }}"
+        commits:
+            - prefix: ""
+              url: "https://github.com/FallegaHQ/xtt-frontend/commit/{{ .Hash }}"
+        issues:
+            - prefix: "#"
+              url: "https://github.com/FallegaHQ/xtt-frontend/issues/{{ .ID }}"
+        merges:
+            - prefix: "#"
+              url: "https://github.com/FallegaHQ/xtt-frontend/pull/{{ .ID }}"
+    tag_filter_pattern: "[0-9]+.[0-9]+.[0-9]+"
