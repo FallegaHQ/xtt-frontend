@@ -84,14 +84,17 @@ jobs:
             -   name: Push The Changelog for Tag
                 env :
                     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                    REPO: ${{ github.repository }}
                 run : |
-                    CONTENT=$(base64 -w 0 CHANGELOG.md)  # Encode the file to base64
+                    LATEST_SHA=$(gh api repos/$REPO/git/ref/heads/master --jq '.object.sha')
+                    FILE_SHA=$(gh api repos/$REPO/contents/CHANGELOG.md --jq '.sha' || echo "")
                     COMMIT_MESSAGE="chore: update changelog for new release"
-                    LATEST_SHA=$(gh api repos/:owner/:repo/git/ref/heads/master --jq '.object.sha')
-                    TREE_SHA=$(gh api repos/:owner/:repo/git/commits/$LATEST_SHA --jq '.tree.sha')
-                    NEW_TREE_SHA=$(gh api repos/:owner/:repo/git/trees -f base_tree=$TREE_SHA -f tree[0][path]=CHANGELOG.md -f tree[0][mode]=100644 -f tree[0][type]=blob -f tree[0][content]="$CONTENT" --jq '.sha')
-                    NEW_COMMIT_SHA=$(gh api repos/:owner/:repo/git/commits -f message="$COMMIT_MESSAGE" -f tree=$NEW_TREE_SHA -f parents[0]=$LATEST_SHA --jq '.sha')
-                    gh api repos/:owner/:repo/git/refs/heads/master -X PATCH -f sha=$NEW_COMMIT_SHA
+                    gh api repos/$REPO/contents/CHANGELOG.md \
+                    -X PUT \
+                    -F message="$COMMIT_MESSAGE" \
+                    -F content="$(base64 -w 0 CHANGELOG.md)" \
+                    -F sha="$FILE_SHA" \
+                    -F branch="master"
 
             -   name: Upload Changelog
                 uses: actions/upload-artifact@v4
