@@ -74,7 +74,11 @@ jobs:
                     curl -sSL https://github.com/git-chglog/git-chglog/releases/download/v0.15.0/git-chglog_0.15.0_linux_amd64.tar.gz | tar -xz
                     sudo mv git-chglog /usr/local/bin/
 
-            -   name: Generate Changelog for Tag
+            -   name: Generate Changelog
+                run: git-chglog -o CHANGELOG.md
+
+
+            -   name: Push The Changelog for Tag
                 run : |
                     git config --global user.name "github-actions"
                     git config --global user.email "github-actions@github.com"
