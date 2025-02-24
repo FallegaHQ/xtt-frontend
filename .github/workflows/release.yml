@@ -72,8 +72,7 @@ jobs:
 
             -   name: Install git-chglog
                 run : |
-                    curl -sSL https://github.com/git-chglog/git-chglog/releases/latest/download/git-chglog-linux-amd64 -o git-chglog
-                    chmod +x git-chglog
+                    curl -sSL https://github.com/git-chglog/git-chglog/releases/download/v0.15.0/git-chglog_0.15.0_linux_amd64.tar.gz | tar -xz
                     sudo mv git-chglog /usr/local/bin/
 
             -   name: Generate Changelog for Tag
