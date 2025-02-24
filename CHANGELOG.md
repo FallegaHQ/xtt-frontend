@@ -2,6 +2,81 @@
 
 
 
+## 0.0.7 (2025-02-24)
+
+
+
+### 🐛 Bug Fixes
+
+
+
+- **devops:** Change the Push The Changelog Step to use EndBug/add-and-commit ([2a5642d](https://github.com/FallegaHQ/xtt-frontend/commit/2a5642d80f9b594e8992d984d9e760185301a2d2))
+  
+  
+
+
+  
+
+## 0.0.6 (2025-02-24)
+
+
+
+### 🐛 Bug Fixes
+
+
+
+- **devops:** Fix the API implementation to push the changelog ([6be8b8d](https://github.com/FallegaHQ/xtt-frontend/commit/6be8b8d41ac81d3849f761187cb85e2b22c94334))
+  
+  
+
+
+  
+
+## 0.0.5 (2025-02-24)
+
+
+
+### 🐛 Bug Fixes
+
+
+
+- **devops:** Use the API to push the changelog instead of git command ([a0a928d](https://github.com/FallegaHQ/xtt-frontend/commit/a0a928d5c15bb7866d56bb2a4e78203555b45a95))
+  
+  
+
+
+  
+
+## 0.0.4 (2025-02-24)
+
+
+
+### 🐛 Bug Fixes
+
+
+
+- **devops:** Add PAT to push generated changelog ([9a1c5a0](https://github.com/FallegaHQ/xtt-frontend/commit/9a1c5a03bbf2ec5079f979ed2310099e596f998d))
+  
+  
+
+
+  
+
+## 0.0.3 (2025-02-24)
+
+
+
+### ✨ Features
+
+
+
+- **devops:** Introduce automated changelog generation ([b6b969b](https://github.com/FallegaHQ/xtt-frontend/commit/b6b969b7bbb9ca8c0de33253ffb54d61f450d0b5))
+  
+  
+
+
+  
+
 ## 0.0.2 (2025-02-24)
 
 
